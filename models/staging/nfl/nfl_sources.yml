@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: nfl
+    description: NFL data from the 2017-2022 seasons.
+    database: nfl_data
+    schema: public
+    freshness: # default freshness
+      warn_after: { count: 5, period: day }
+      error_after: { count: 1000, period: day }
+    loaded_at_field: loaded_at
+
+    tables:
+      - name: passing_stats
+        description: Passing data from the 2017-2022 seasons. 
+      - name: receiving_stats
+        description: Receiving data from the 2017-2022 seasons.    
+      - name: conference_mapping
+        description: Team to conference mapping.                 
