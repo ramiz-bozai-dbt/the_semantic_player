@@ -1,0 +1,84 @@
+semantic_models:
+  - name: passing_stats
+    description: |
+      Data on NFL passing stats. Each record contains a single season for a player.
+    defaults:
+      agg_time_dimension: season_year
+    model: ref('passing_stats')
+    primary_entity: passing
+
+    entities:
+      - name: player_name
+        type: foreign
+        expr: player_name
+      - name: team
+        type: foreign
+        expr: team
+
+    measures:
+      - name: total_passing_players
+        description: Unique number of players.
+        expr: player_name
+        agg: count_distinct     
+
+    dimensions:
+      - name: position
+        type: categorical
+        expr: position
+      - name: season_year
+        type: time
+        type_params:
+          time_granularity: year
+
+##
+  - name: receiving_stats
+    description: |
+      Data on NFL receiving stats. Each record contains a single season for a player.
+    defaults:
+      agg_time_dimension: season_year
+    model: ref('receiving_stats')
+    primary_entity: receiving           
+
+    entities:
+      - name: player_name
+        type: foreign
+        expr: player_name
+      - name: team
+        type: foreign
+        expr: team
+
+    measures:
+      - name: total_receiving_players
+        description: Unique number of players.
+        expr: player_name
+        agg: count_distinct 
+      - name: total_receiving_touchdowns
+        description: Total receiving touchdowns.
+        expr: td
+        agg: sum         
+
+    dimensions:    
+      - name: position
+        type: categorical
+        expr: position
+      - name: season_year
+        type: time
+        type_params:
+          time_granularity: year
+
+##
+  - name: conference_mapping
+    description: |
+      Mapping for teams to NFL conferences.
+    defaults:
+    model: ref('conference_mapping')
+
+    entities:
+      - name: team
+        type: primary
+        expr: team
+
+    dimensions:
+      - name: conference
+        type: categorical
+        expr: conference                
