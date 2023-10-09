@@ -19,16 +19,42 @@ semantic_models:
       - name: total_passing_players
         description: Unique number of players.
         expr: player_name
-        agg: count_distinct     
+        agg: count_distinct 
+      - name: total_completions
+        description: Number of completed passes.
+        expr: completions
+        agg: sum
+      - name: total_attempts
+        description: Number of attempted passes.
+        expr: attempts
+        agg: sum
+      - name: total_passing_yards
+        description: Total yards thrown for.
+        expr: yards
+        agg: sum    
+      - name: total_passing_touchdowns
+        description: Number of passing touchdowns.
+        expr: td
+        agg: sum                              
 
     dimensions:
-      - name: position
-        type: categorical
-        expr: position
       - name: season_year
         type: time
         type_params:
-          time_granularity: year
+          time_granularity: year    
+      - name: player
+        type: categorical
+        expr: player_name
+      - name: team
+        type: categorical
+        expr: team        
+      - name: age
+        type: categorical
+        expr: age
+      - name: position
+        type: categorical
+        expr: position
+
 
 ##
   - name: receiving_stats
@@ -52,22 +78,37 @@ semantic_models:
         description: Unique number of players.
         expr: player_name
         agg: count_distinct 
+      - name: total_targets
+        description: Number of targeted passes.
+        expr: targets
+        agg: sum        
+      - name: total_receptions
+        description: Total passes caught.
+        expr: receptions
+        agg: sum       
+      - name: total_receiving_yards
+        description: Total reception yards.
+        expr: yards
+        agg: sum    
       - name: total_receiving_touchdowns
-        description: Total receiving touchdowns.
+        description: Number of receiving touchdowns.
         expr: td
-        agg: sum         
+        agg: sum   
 
     dimensions:    
-      - name: player_name
-        type: categorical
-        expr: player_name
-      - name: position
-        type: categorical
-        expr: position
       - name: season_year
         type: time
         type_params:
-          time_granularity: year
+          time_granularity: year    
+      - name: player_name
+        type: categorical
+        expr: player_name
+      - name: team
+        type: categorical
+        expr: team        
+      - name: position
+        type: categorical
+        expr: position
 
 ##
   - name: conference_mapping
@@ -77,7 +118,7 @@ semantic_models:
     model: ref('conference_mapping')
 
     entities:
-      - name: team
+      - name: team_key
         type: primary
         expr: team
 
