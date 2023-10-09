@@ -8,10 +8,10 @@ semantic_models:
     primary_entity: passing
 
     entities:
-      - name: player_name
+      - name: player_name_key
         type: foreign
         expr: player_name
-      - name: team
+      - name: team_key
         type: foreign
         expr: team
 
@@ -40,10 +40,10 @@ semantic_models:
     primary_entity: receiving           
 
     entities:
-      - name: player_name
+      - name: player_name_key
         type: foreign
         expr: player_name
-      - name: team
+      - name: team_key
         type: foreign
         expr: team
 
@@ -58,6 +58,9 @@ semantic_models:
         agg: sum         
 
     dimensions:    
+      - name: player_name
+        type: categorical
+        expr: player_name
       - name: position
         type: categorical
         expr: position
