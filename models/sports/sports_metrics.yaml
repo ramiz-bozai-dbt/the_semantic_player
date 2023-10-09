@@ -10,3 +10,9 @@ metrics:
     type_params:
       measure: total_receiving_players
     label: "Count distinct of players"    
+
+  - name: total_receiving_touchdowns
+    type: simple
+    type_params:
+      measure: total_receiving_touchdowns
+    label: "Count of receiving touchdowns"         

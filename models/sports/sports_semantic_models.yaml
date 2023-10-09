@@ -52,8 +52,12 @@ semantic_models:
         description: Unique number of players.
         expr: player_name
         agg: count_distinct 
+      - name: total_receiving_touchdowns
+        description: Total receiving touchdowns.
+        expr: td
+        agg: sum         
 
-    dimensions:
+    dimensions:    
       - name: position
         type: categorical
         expr: position
@@ -67,29 +71,14 @@ semantic_models:
     description: |
       Mapping for teams to NFL conferences.
     defaults:
-      agg_time_dimension:
-    model: ref('receiving_stats')
-    primary_entity: receiving           
+    model: ref('conference_mapping')
 
     entities:
-      - name: player_name
-        type: foreign
-        expr: player_name
       - name: team
-        type: foreign
+        type: primary
         expr: team
 
-    measures:
-      - name: total_receiving_players
-        description: Unique number of players.
-        expr: player_name
-        agg: count_distinct 
-
     dimensions:
-      - name: position
+      - name: conference
         type: categorical
-        expr: position
-      - name: season_year
-        type: time
-        type_params:
-          time_granularity: year          
+        expr: conference                
