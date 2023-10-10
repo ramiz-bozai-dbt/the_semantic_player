@@ -126,3 +126,38 @@ semantic_models:
       - name: conference
         type: categorical
         expr: conference                
+
+##
+  - name: billboard_charts
+    description: |
+      Data on songs that made it onto the Billboard Top one hundred. Each record indicates a song and when it appeared.
+    defaults:
+      agg_time_dimension: appearance_date
+    model: ref('billboard_charts')
+    primary_entity: charts           
+
+    entities:
+      - name: artist_key
+        type: foreign
+        expr: artist
+
+    measures:
+      - name: total_songs_ranked
+        description: Unique songs that were on the Billboard charts (all time).
+        expr: song
+        agg: count_distinct 
+
+    dimensions:    
+      - name: appearance_date
+        type: time
+        type_params:
+          time_granularity: day    
+      - name: rank
+        type: categorical
+        expr: rank
+      - name: song
+        type: categorical
+        expr: song   
+      - name: artist
+        type: categorical
+        expr: artist                        

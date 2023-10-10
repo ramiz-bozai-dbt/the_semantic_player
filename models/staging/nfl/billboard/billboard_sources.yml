@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: billboard
+    description: Data from the Billboard music charts.
+    database: nfl_data
+    schema: public
+    freshness: # default freshness
+      warn_after: { count: 5, period: day }
+      error_after: { count: 1000, period: day }
+    loaded_at_field: loaded_at
+
+    tables:
+      - name: charts
+        identifier: billboard_charts
+        description: Data from the Billboard music charts from 1975-2021.
