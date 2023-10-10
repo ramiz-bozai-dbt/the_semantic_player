@@ -5,6 +5,44 @@ metrics:
       measure: total_passing_players
     label: "Count distinct of players"
 
+  - name: total_completions
+    type: simple
+    type_params:
+      measure: total_completions
+    label: "Total completed passes" 
+
+  - name: total_attempts
+    type: simple
+    type_params:
+      measure: total_attempts
+    label: "Total attempted passes"     
+    
+  - name: completion_pct
+    type: ratio
+    type_params: # Required
+      numerator: total_completions
+      denominator: total_attempts
+    label: "Passing completion percentage"         
+
+  - name: qb_completion_pct
+    type: derived
+    type_params:
+      expr: completion_pct
+      metrics:
+        - name: completion_pct
+          filter: |
+            {{ Dimension('passing__position') }} = 'QB'    
+    label: "Quarterback-only passing completion percentage"              
+
+
+
+
+
+
+
+
+
+
   - name: count_receiving_players
     type: simple
     type_params:
