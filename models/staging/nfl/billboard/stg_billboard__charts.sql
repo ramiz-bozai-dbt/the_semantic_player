@@ -7,7 +7,7 @@ with source as (
 renamed as (
 
     select
-        to_timestamp(date) as appearance_date,
+        to_date(date) as appearance_date,
         rank,
         song,
         artist,
