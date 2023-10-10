@@ -16,3 +16,9 @@ metrics:
     type_params:
       measure: total_receiving_touchdowns
     label: "Count of receiving touchdowns"         
+
+  - name: count_songs_ranked
+    type: simple
+    type_params:
+      measure: total_songs_ranked
+    label: "Count distinct of songs ranked on the Billboard Top 100"        
