@@ -36,13 +36,6 @@ metrics:
 
 
 
-
-
-
-
-
-
-
   - name: count_receiving_players
     type: simple
     type_params:
@@ -61,8 +54,8 @@ metrics:
     type_params:
       measure: total_songs_ranked
     label: "Count distinct of songs ranked on the Billboard Top 100"     
-  - name: cumulative_songs_ranked
+  - name: cumulative_appearances
     type: cumulative
     type_params:
-      measure: total_songs_ranked
-    label: "Cumulative total of songs ranked on the Billboard Top 100"            
+      measure: total_appearances
+    label: "Cumulative total of appearances Billboard Top 100"            
