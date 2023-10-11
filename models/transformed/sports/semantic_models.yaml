@@ -5,9 +5,11 @@ semantic_models:
     defaults:
       agg_time_dimension: season_year
     model: ref('passing_stats')
-    primary_entity: passing
 
     entities:
+      - name: player_season_id
+        type: primary
+        expr: id 
       - name: player_name_key
         type: foreign
         expr: player_name
@@ -149,7 +151,7 @@ semantic_models:
       - name: total_appearances
         description: Number of appearances on Billboard charts.
         expr: id
-        agg: count_distinct         
+        agg: count_distinct          
 
     dimensions:    
       - name: appearance_date
