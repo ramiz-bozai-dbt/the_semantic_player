@@ -22,19 +22,27 @@ metrics:
     type_params: # Required
       numerator: total_completions
       denominator: total_attempts
-    label: "Passing completion percentage"         
+    label: "Passing completion percentage"     
 
   - name: qb_completion_pct
-    type: derived
-    type_params:
-      expr: completion_pct
-      metrics:
-        - name: completion_pct
-          filter: |
-            {{ Dimension('passing__position') }} = 'QB'    
-    label: "Quarterback-only passing completion percentage"              
+    type: ratio
+    type_params: # Required
+      numerator: 
+        name: total_completions
+        filter: "{{ Dimension('player_season_id__position') }} = 'QB'"
+      denominator: 
+        name: total_attempts
+        filter: "{{ Dimension('player_season_id__position') }} = 'QB'"
+    label: "Passing completion percentage"             
 
-
+  # - name: qb_completion_pct
+  #   type: derived
+  #   type_params:
+  #     expr: completion_pct
+  #     metrics:
+  #       - name: completion_pct
+  #         filter: "{{ Dimension('player_season_id__position') }} = 'QB'"
+  #   label: "Quarterback-only passing completion percentage"              
 
   - name: count_receiving_players
     type: simple
@@ -49,13 +57,15 @@ metrics:
     label: "Count of receiving touchdowns"         
 
 ##Music related
-  - name: count_songs_ranked
+  - name: total_songs_ranked
     type: simple
     type_params:
       measure: total_songs_ranked
-    label: "Count distinct of songs ranked on the Billboard Top 100"     
-  - name: cumulative_appearances
-    type: cumulative
+    label: "Count distinct of songs ranked on the Billboard Top 100"  
+
+  - name: total_appearances
+    type: simple
     type_params:
       measure: total_appearances
-    label: "Cumulative total of appearances Billboard Top 100"            
+    label: "Count distinct of appearances on the Billboard Top 100"         
+
