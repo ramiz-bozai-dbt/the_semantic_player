@@ -146,10 +146,10 @@ semantic_models:
         description: Unique songs that were on the Billboard charts (all time).
         expr: song
         agg: count_distinct 
-      # - name: total_appearances
-      #   description: Number of appearances on Billboard charts.
-      #   expr: id
-      #   agg: count_distinct         
+      - name: total_appearances
+        description: Number of appearances on Billboard charts.
+        expr: id
+        agg: count_distinct         
 
     dimensions:    
       - name: appearance_date
