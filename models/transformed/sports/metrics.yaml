@@ -35,6 +35,19 @@ metrics:
       denominator: total_attempts
     label: "Passing completion percentage"            
 
+  - name: total_passing_yards
+    type: simple
+    type_params:
+      measure: total_passing_yards
+    label: "Total passing yards" 
+
+  - name: total_passing_touchdowns
+    type: simple
+    type_params:
+      measure: total_passing_touchdowns
+    label: "Total passing touchdowns"     
+
+##
   - name: count_receiving_players
     type: simple
     type_params:
@@ -45,7 +58,13 @@ metrics:
     type: simple
     type_params:
       measure: total_receiving_touchdowns
-    label: "Count of receiving touchdowns"         
+    label: "Count of receiving touchdowns"  
+
+  - name: total_receiving_yards
+    type: simple
+    type_params:
+      measure: total_receiving_yards
+    label: "Sum of receiving yards"             
 
 ##Music related
   - name: total_songs_ranked
