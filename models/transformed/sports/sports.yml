@@ -56,5 +56,6 @@ models:
       - name: conference
         description: "NFL conference"
         tests:
-            - not_null               
+            - not_null
+                       
 
