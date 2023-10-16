@@ -1,5 +1,5 @@
 select
-md5(appearance_date||song||artist) as id,
+md5(appearance_date||rank||song||artist) as id,
 *
 
 from {{ ref('stg_billboard__charts') }}

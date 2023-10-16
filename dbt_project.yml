@@ -34,9 +34,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   the_semantic_player:
     # Applies to all files under models/example/
-    sports:
-      materialized: table
+    transformed:
+      +materialized: table
+      +schema: transformed
     staging:
-      materialized: view 
+      +materialized: view
+      +schema: staging 
     utilities:
-      materialized: table            
+      +materialized: table
+      +schema: utilities      
