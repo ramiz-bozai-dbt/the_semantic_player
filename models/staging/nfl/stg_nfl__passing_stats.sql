@@ -1,4 +1,4 @@
-with 
+with
 
 source as (
 
@@ -9,15 +9,15 @@ source as (
 renamed as (
 
     select
-        to_date(year, 'YYYY') as season_year,
-        regexp_replace(player, '[^a-zA-Z0-9 ]', '') as player_name,
         tm as team,
         age,
         pos as position,
         cmp as completions,
         att as attempts,
         yds as yards,
-        td
+        td,
+        to_date(year, 'YYYY') as season_year,
+        regexp_replace(player, '[^a-zA-Z0-9 ]', '') as player_name
 
     from source
 
