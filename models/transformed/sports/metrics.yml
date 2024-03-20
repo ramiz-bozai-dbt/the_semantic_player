@@ -4,7 +4,7 @@ metrics:
     type_params:
       measure: total_passing_players
     label: "Count distinct of players"
-    description: "The count of players."
+    description: "The count of players in the table."
 
   - name: total_completions
     type: simple
