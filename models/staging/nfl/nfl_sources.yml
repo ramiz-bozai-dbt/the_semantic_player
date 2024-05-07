@@ -16,4 +16,4 @@ sources:
       - name: receiving_stats
         description: Receiving data from the 2017-2022 seasons.    
       - name: conference_mapping
-        description: Team to conference mapping.                 
+        description: Team to conference mapping.         
