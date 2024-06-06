@@ -10,6 +10,7 @@ renamed as (
 
     select
         tm as team,
+        1 as test,
         age,
         pos as position,
         cmp as completions,
