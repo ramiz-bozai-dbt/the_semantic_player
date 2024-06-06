@@ -4,7 +4,7 @@ sources:
   - name: billboard
     description: Data from the Billboard music charts.
     database: nfl_data
-    schema: public
+    schema: raw
     freshness: # default freshness
       warn_after: { count: 5, period: day }
       error_after: { count: 1000, period: day }
