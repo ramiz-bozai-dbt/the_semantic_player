@@ -9,7 +9,7 @@ exposures:
     type: dashboard 
     
     # this is just a link to the thing itself for click through from documentation
-    url: https://public.tableau.com/app/profile/ramiz.bozai/viz/DAIS2024/Dashboard1#1
+    url: https://public.tableau.com/app/profile/ramiz.bozai/viz/Attemptsvs_Completion2021-DAIS/Dashboard1
     
     # convenience feature - relative scale of {high, medium, low}
     maturity: high
