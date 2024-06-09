@@ -3,7 +3,7 @@ metrics:
     type: simple #This is a simple metric
     type_params:
       measure: total_passing_players
-    label: "Count distinct of players"
+    label: "Count distinct of passing players"
     description: "The count of players in the table."
 
   - name: total_completions
@@ -59,7 +59,7 @@ metrics:
     type: simple
     type_params:
       measure: total_receiving_players
-    label: "Count distinct of players"
+    label: "Count distinct of receiving players"
     description: "The count of players."    
 
   - name: total_receiving_touchdowns
