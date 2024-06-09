@@ -6,24 +6,24 @@ models:
     columns:
       - name: id
         description: "Hased unique identifier for date - song - artist combination."
-        tests:
+        data_tests:
             - not_null
             - unique
       - name: appearance_date
         description: "Date the song appeared on the Billboard Top 100"
-        tests:
+        data_tests:
             - not_null
       - name: rank
         description: "The ranking of the song when it appeared"
-        tests:
+        data_tests:
             - not_null
       - name: song
         description: "Song name"
-        tests:
+        data_tests:
           - not_null
       - name: artist
         description: "Artist name"
-        tests:
+        data_tests:
           - not_null  
       - name: last_week
         description: "Ranking for song in the previous week"               
