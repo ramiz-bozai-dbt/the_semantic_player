@@ -33,13 +33,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   the_semantic_player:
-    # Applies to all files under models/example/
+    # Applies to all files under models/
     transformed:
       +materialized: table
       +schema: transformed
+      +database: "{{ env_var('DBT_TARGET_DATABASE') }}"
     staging:
       +materialized: view
       +schema: staging 
+      +database: "{{ env_var('DBT_TARGET_DATABASE') }}"
     utilities:
       +materialized: table
       +schema: utilities      
+      +database: "{{ env_var('DBT_TARGET_DATABASE') }}"
