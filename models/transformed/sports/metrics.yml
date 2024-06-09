@@ -29,7 +29,7 @@ metrics:
           alias: attempts
         - name: total_completions
           alias: completions
-    label: "Total attempted passes"
+    label: "Total incomplete passes"
     description: "The number of incomplete passes."
     
   - name: completion_pct
